@@ -9,10 +9,11 @@ from PIL import Image
 
 class ImageObject(object):
 # Classe com propriedades básicas de imagens.
-
+#https://terminalroot.com.br/2019/12/as-30-melhores-bibliotecas-e-pacotes-python-para-iniciantes.html
 
     def __init__(
-                 self, img_path):
+                 self, img_path,
+                 img = None):
         self.img_path = img_path
         self.img = Image.open(img_path)
         
@@ -35,14 +36,6 @@ class ImageObject(object):
             print(f'O erro encontrado foi {erro.__cause__}')
             
             
-    def checkSize(self):
-# Checa o tamanho da imagem
-        try:
-            width, height = self.img.size
-            print(f'O comprimento da imagem é {width}, e o da altura é {height}, em pixels.')
-        except Exception as erro:
-            print(f'O erro encontrado foi {erro.__cause__}')
-            
     
     def closeImage(self):
 # Tenta fechar a imagem aberta. Pode ser que não seja útil, vamos ver.
@@ -57,4 +50,5 @@ class ImageObject(object):
 # Utilizado para debuggar
         print("Imagem = ", self.img_path)
         print("Mostrar imagem", self.img.show())
+        
         
