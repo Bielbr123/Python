@@ -8,14 +8,15 @@ Aqui estarão os filtros que serão utilizados para o meu programa. Aparentement
 utilizei apenas a biblioteca Pillow para isso, mas, provavelmente eu tenha
 finde
 usando a OpenCV ou a Keras.
+Usar o comando dir para mostrar os atributos de uma classe.
 """
 
 from PIL import Image, ImageFilter
 
-from imageObject import ImageObject
+from imageOptions import ImageOptions
 
 
-class ImageFilterObject(ImageObject):
+class ImageFilterObject(ImageOptions):
     """
     Class: coloca filtros na imagem.
 
@@ -47,7 +48,6 @@ class ImageFilterObject(ImageObject):
                                     radius)
                         )
             print(f'Dentro do if. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
         else:
             self.tempImg = self.img.filter(
@@ -55,7 +55,6 @@ class ImageFilterObject(ImageObject):
                                     radius)
                     )
             print(f'Dentro do else. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
     def boxBlur(self, radius=2):
         """
@@ -81,7 +80,6 @@ class ImageFilterObject(ImageObject):
                                     radius)
                         )
             print(f'Dentro do if. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
         else:
             self.tempImg = self.img.filter(
@@ -89,7 +87,6 @@ class ImageFilterObject(ImageObject):
                                    radius)
                         )
             print(f'Dentro do else. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
     def unsharpMask(self, radius=2,
                     percent=150, trheshold=3
@@ -121,7 +118,6 @@ class ImageFilterObject(ImageObject):
                             trheshold)
                                           )
             print(f'Dentro do if. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
         else:
             self.tempImg = self.img.filter(
@@ -130,7 +126,6 @@ class ImageFilterObject(ImageObject):
                             trheshold)
                                           )
             print(f'Dentro do else. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
     def rankFilter(self, size=9, rank=2):
         """
@@ -157,7 +152,6 @@ class ImageFilterObject(ImageObject):
                             size, rank)
                                           )
             print(f'Dentro do if. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
         else:
             self.tempImg = self.img.filter(
@@ -165,7 +159,6 @@ class ImageFilterObject(ImageObject):
                             size, rank)
                                           )
             print(f'Dentro do else. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
     def modeFilter(self, size=3):
         """
@@ -186,13 +179,11 @@ class ImageFilterObject(ImageObject):
             self.tempImg = self.img.filter(
                 ImageFilter.ModeFilter(size))
             print(f'Dentro do if. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
         else:
             self.tempImg = self.img.filter(
                 ImageFilter.ModeFilter(size))
             print(f'Dentro do else. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
     def contourFilter(self):
         """
@@ -210,16 +201,15 @@ class ImageFilterObject(ImageObject):
             self.tempImg = self.img.filter(
                 ImageFilter.CONTOUR())
             print(f'Dentro do if. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
+
         else:
             self.tempImg = self.img.filter(
                 ImageFilter.CONTOUR())
             print(f'Dentro do else. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
 
     def edgeEnhanceFilter(self):
         """
-        Return.
+        Return an edgeEnhanceFiltered ImageObject.
 
         -------
         None.
@@ -233,9 +223,8 @@ class ImageFilterObject(ImageObject):
             self.tempImg = self.img.filter(
                 ImageFilter.EDGE_ENHANCE_MORE())
             print(f'Dentro do if. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
+
         else:
             self.tempImg = self.img.filter(
                 ImageFilter.EDGE_ENHANCE_MORE())
             print(f'Dentro do else. O tipo de tempImg é {type(self.img)}')
-            self.tempImg.show()
