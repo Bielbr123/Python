@@ -1,0 +1,5 @@
+LAMMPS (29 Sep 2021 - Update 2)
+  using 4 OpenMP thread(s) per MPI task
+rerun dump.vels dump x y z vx vy vz box yes format molfile lammpstrj
+ERROR: Rerun command before simulation box is defined (src/rerun.cpp:40)
+Last command: rerun dump.vels dump x y z vx vy vz box yes format molfile lammpstrj
