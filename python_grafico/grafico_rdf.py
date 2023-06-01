@@ -25,21 +25,19 @@ for outFile in range(len(outNames)):
 
 # Codigo dos rdfs do travis
 for csvFile in range(len(csvNames)):
-    angDist = []
-    gR=[]
     csvData=[]
     with open(csvRdf[csvFile], "r") as file:
         allLines = file.readlines()
         lines = allLines[1:]
         strData = [num.split(";") for num in lines]
         file.close()
-    
+
     for strList in strData:
         templist = []
         for strNum in strList:
             templist.append(float(strNum))
-        #print(templist)
-        splitedDist = templist[:1]
-        splitedRest = templist[1:]
-        gR.append(splitedRest)
-        angDist.append(splitedDist)
+        csvData.append(templist)
+
+    for i in csvData:
+        i[0]=i[0]/100
+    totalData[csvNames[csvFile]]=csvData
