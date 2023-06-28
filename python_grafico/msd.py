@@ -34,8 +34,33 @@ distRdf=[]; gRrdf=[]
 #print(msdRdf)
 
 with open(msdRdf[0], "r") as file:
+    csvData = []
     lines = file.readlines()
-    data = lines[1:]
-    strData = [num.split() for num in data]
+    strLine = lines[1:]
+    strData = [num.split(';') for num in strLine]
     file.close()
-print(strData)
+
+    for strList in strData:
+        templist = []
+        for strNum in strList:
+            templist.append(float(strNum))
+        csvData.append(templist)
+        templist = []
+
+    time = []; msd = []; derivate = []
+    for unfiData in csvData:
+        time.append(round(unfiData[0]*3.337, 2))
+        msd.append(round(unfiData[1]/100, 2))
+        derivate.append(round(unfiData[2], 3))
+"""
+plt.plot(time, msd)
+plt.legend("Temp")
+plt.xlabel("Time (ns)")
+plt.ylabel("MSD (Å²)")
+plt.show()
+"""
+plt.plot(time, derivate)
+plt.legend("Temp")
+plt.xlabel("Time (ns)")
+plt.ylabel("Coef. Difu")
+plt.show()
