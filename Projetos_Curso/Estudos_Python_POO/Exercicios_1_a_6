@@ -1,0 +1,98 @@
+# Disponível em: https://pynative.com/python-object-oriented-programming-oop-exercise/#h-oop-exercise-1-create-a-class-with-instance-attributes
+# Questão 1
+class Vehicle():
+
+    def __init__(self, max_speed, mileage):
+        self.max_speed = max_speed
+        self.mileage   = mileage
+
+#veiculo = Vehicle(100, 200)
+#print(veiculo.max_speed, veiculo.mileage)
+
+# Questão 2
+class Vehicle():
+    pass
+
+# Questão 3
+class Vehicle():
+
+    def __init__(self, name, max_speed, mileage):
+        self.name      = name
+        self.max_speed = max_speed
+        self.mileage   = mileage
+
+class Bus(Vehicle):
+    pass
+    #def __init__(self, name, max_speed, mileage):
+        # super(Vehicle, self).__init__(name = name, max_speed = max_speed, mileage = mileage)
+
+ax = Bus('Volvo', 100, 200)
+print(ax.name, ax.max_speed,  ax.mileage)
+
+# Questão 4
+class Vehicle:
+    def __init__(self, name, max_speed, mileage):
+        self.name = name
+        self.max_speed = max_speed
+        self.mileage = mileage
+
+    def seating_capacity(self, capacity):
+        return f"The seating capacity of a {self.name} is {capacity} passengers"
+
+class Bus(Vehicle):
+    
+    def ___init__(self, name, max_speed, mileage):
+        self.name = name
+        self.max_speed = max_speed
+        self.mileage = mileage
+    
+    def seating_capacity(self, capacity=50):
+        # O super tem de vir antes da função que você quer modificar da classe anterior.
+        return super().seating_capacity(capacity=50)
+    
+#carro = Bus("Volvo", 100, 200)
+#print(carro.seating_capacity())
+
+# Questão 5
+class Vehicle:
+
+    def __init__(self, name, max_speed, mileage):
+        self.name = name
+        self.max_speed = max_speed
+        self.mileage = mileage
+
+    def color(self, color="white"):
+        return "Color: White"
+        
+        
+class Bus(Vehicle):
+    pass
+
+class Car(Vehicle):
+    pass
+
+carro = Bus("Gol", 100, 200)
+print(f"{carro.color()}, Vehicle Name: {carro.name}, Speed: {carro.max_speed}, Mileage: {carro.mileage}")
+
+# Questão 6
+
+class Vehicle:
+
+    def __init__(self, name, mileage, capacity):
+        self.name = name
+        self.mileage = mileage
+        self.capacity = capacity
+
+    def fare(self):
+        return self.capacity * 100
+
+class Bus(Vehicle):
+    
+    def fare(self):
+        # Aqui o exercício faz herdando da classe pai, que é o certo, e não como eu fiz que defini um novo atributo na classe filha.
+        amount = super().fare()
+        amount += amount * 10/100
+        return amount
+
+School_bus = Bus("School Volvo", 12, 50)
+print("Total Bus fare is:", School_bus.fare())
